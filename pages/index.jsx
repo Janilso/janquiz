@@ -2,6 +2,7 @@
 
 import styled from 'styled-components';
 import { backgroundMarvel } from '../src/assets/images';
+import GitHubCorner from '../src/components/GitHubCorner';
 import QuizBackground from '../src/components/QuizBackground';
 import QuizLogo from '../src/components/QuizLogo';
 import Widget from '../src/components/Widget';
@@ -43,6 +44,7 @@ export default function Home() {
           </Widget.Content>
         </Widget>
       </QuizContainer>
+      <GitHubCorner projectUrl="https://github.com/Janilso/janquiz" />
     </QuizBackground>
   );
 }
