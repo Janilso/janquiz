@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const QuizButton = (props) => {
   const { type, typeButton, width, disabled, onClick, children } = props;
-  console.log(props.width);
   return (
     <StyleQuizButton
       type={type}
@@ -78,4 +77,4 @@ QuizButton.defaultProps = {
   onClick: () => {},
 };
 
-export default QuizButton;
+export default memo(QuizButton);

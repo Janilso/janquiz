@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import styled from 'styled-components';
-import React from 'react';
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 
 const QuizInput = (props) => {
@@ -52,4 +52,4 @@ const StyleQuizInput = styled.input`
   }
 `;
 
-export default QuizInput;
+export default memo(QuizInput);

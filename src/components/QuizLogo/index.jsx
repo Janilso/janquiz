@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Image from 'next/image';
@@ -26,4 +26,4 @@ const QuizLogo = styled(Logo)`
   }
 `;
 
-export default QuizLogo;
+export default memo(QuizLogo);

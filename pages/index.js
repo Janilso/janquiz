@@ -10,6 +10,7 @@ import QuizLogo from '../src/components/QuizLogo';
 import Widget from '../src/components/Widget';
 import QuizInput from '../src/components/QuizInput';
 import QuizButton from '../src/components/QuizButton';
+import QuizOption from '../src/components/QuizOption';
 
 const QuizContainer = styled.div`
   width: 100%;
@@ -60,6 +61,9 @@ export default function Home() {
           <Widget.Content>
             <h1>Quizes da Galera</h1>
             <p>lorem ipsum dolor sit ametass...</p>
+            <QuizOption title="clebinhodj/showdomilhaoalura" hoverble={false} />
+            <QuizOption title="joaokleberprogramador/aluraqiz" hoverble={false} />
+            <QuizOption title="demervalthelegend/imersao-alura" hoverble={false} />
           </Widget.Content>
         </Widget>
       </QuizContainer>
