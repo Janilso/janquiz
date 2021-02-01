@@ -3,24 +3,6 @@ import styled from 'styled-components';
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 
-const QuizInput = (props) => {
-  const { onChange, placeholder, value, ...rest } = props;
-
-  return <StyleQuizInput onChange={onChange} placeholder={placeholder} value={value} {...rest} />;
-};
-
-QuizInput.propTypes = {
-  onChange: PropTypes.func,
-  placeholder: PropTypes.string,
-  value: PropTypes.string,
-};
-
-QuizInput.defaultProps = {
-  onChange: () => {},
-  placeholder: '',
-  value: '',
-};
-
 const StyleQuizInput = styled.input`
   color: red;
   outline: none;
@@ -51,5 +33,25 @@ const StyleQuizInput = styled.input`
     font-size: 14px;
   }
 `;
+
+const QuizInput = (props) => {
+  const { onChange, placeholder, value, name, ...rest } = props;
+
+  return <StyleQuizInput onChange={onChange} placeholder={placeholder} value={value} name={name} {...rest} />;
+};
+
+QuizInput.propTypes = {
+  onChange: PropTypes.func,
+  placeholder: PropTypes.string,
+  value: PropTypes.string,
+  name: PropTypes.string,
+};
+
+QuizInput.defaultProps = {
+  onChange: () => {},
+  placeholder: '',
+  value: '',
+  name: '',
+};
 
 export default memo(QuizInput);
