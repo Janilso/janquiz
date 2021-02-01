@@ -1,3 +1,6 @@
 // next.config.js
-const optimizedImages = require('next-optimized-images');
-module.exports = optimizedImages();
+const withImages = require('next-images');
+
+module.exports = withImages({
+  esModule: true,
+});

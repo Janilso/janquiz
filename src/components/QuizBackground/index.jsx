@@ -1,14 +1,13 @@
-import React from 'react';
+/* eslint-disable react/require-default-props */
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const Background = ({ className, children }) => {
-  return <div className={className}>{children}</div>;
-};
+const Background = ({ className, children }) => <div className={className}>{children}</div>;
 
 Background.propTypes = {
   className: PropTypes.string.isRequired,
-  children: PropTypes.element,
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]),
 };
 
 const QuizBackground = styled(Background)`
@@ -24,11 +23,7 @@ const QuizBackground = styled(Background)`
       content: '';
       background-size: cover;
       background-position: center right;
-      background-image: linear-gradient(
-          transparent,
-          transparent,
-          ${({ theme }) => theme.colors.mainBg}
-        ),
+      background-image: linear-gradient(transparent, transparent, ${({ theme }) => theme.colors.mainBg}),
         url(${({ image }) => image});
       display: block;
       width: 100%;
@@ -46,4 +41,4 @@ const QuizBackground = styled(Background)`
   }
 `;
 
-export default QuizBackground;
+export default memo(QuizBackground);
