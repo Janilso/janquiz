@@ -1,4 +1,4 @@
-import { themeNormal } from './normal';
+import themeNormal from './normal';
 
 const themes = {
   normal: { ...themeNormal },

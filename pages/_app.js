@@ -10,9 +10,11 @@ const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
   }
+  body, button, input{
+    font-family: Ubuntu,'Lato', sans-serif;
+  }
   
   body {
-    font-family: Ubuntu,'Lato', sans-serif;
     margin: 0;
     padding: 0;
     display: flex;
@@ -22,6 +24,7 @@ const GlobalStyle = createGlobalStyle`
   html, body {
     min-height: 100vh;
   }
+
   #__next {
     flex: 1;
     display: flex;
