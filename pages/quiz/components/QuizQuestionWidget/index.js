@@ -33,9 +33,9 @@ const QuizQuestionWidget = (props) => {
     setHit(selected === question?.answer);
     setEnabledClick(false);
     setTimeout(() => {
-      onChangeQuestion();
+      onChangeQuestion({ acertou: selected === question?.answer });
       resetState();
-    }, 1000);
+    }, 2000);
   };
 
   const renderHit = (acertou) => {
