@@ -1,6 +1,5 @@
 // import styled from 'styled-components';
 
-import styled from 'styled-components';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { backgroundMarvel } from '../src/assets/images';
@@ -11,18 +10,7 @@ import Widget from '../src/components/Widget';
 import QuizInput from '../src/components/QuizInput';
 import QuizButton from '../src/components/QuizButton';
 import QuizOption from '../src/components/QuizOption';
-
-const QuizContainer = styled.div`
-  width: 100%;
-  max-width: 350px;
-  padding-top: 2rem;
-  margin: auto 10%;
-
-  @media screen and (max-width: 500px) {
-    margin: auto;
-    padding: 1rem;
-  }
-`;
+import QuizContainer from '../src/components/QuizContainer';
 
 export default function Home() {
   const router = useRouter();
@@ -46,6 +34,7 @@ export default function Home() {
             <p>Teste os seus conhecimentos sobre o universo Marvel e divirta-se criando o seu AluraQuiz!</p>
             <form onSubmit={onSubmit}>
               <QuizInput
+                name="nome"
                 placeholder="Diz aí seu nome pra jogar :)"
                 onChange={(e) => setName(e.target?.value)}
                 value={name}

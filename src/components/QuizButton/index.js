@@ -2,20 +2,6 @@ import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const QuizButton = (props) => {
-  const { type, typeButton, width, disabled, onClick, children } = props;
-  return (
-    <StyleQuizButton
-      type={type}
-      typeButton={typeButton}
-      width={width}
-      disabled={disabled}
-      onClick={onClick}
-      children={children}
-    />
-  );
-};
-
 const getColor = (props) => {
   const { theme, typeButton } = props || {};
   const { colors } = theme || {};
@@ -60,6 +46,20 @@ const StyleQuizButton = styled.button`
     background-color: ${({ theme: { colors } }) => colors.desactive};
   }
 `;
+
+const QuizButton = (props) => {
+  const { type, typeButton, width, disabled, onClick, children } = props;
+  return (
+    <StyleQuizButton
+      type={type}
+      typeButton={typeButton}
+      width={width}
+      disabled={disabled}
+      onClick={onClick}
+      children={children}
+    />
+  );
+};
 
 QuizButton.propTypes = {
   type: PropTypes.string,
