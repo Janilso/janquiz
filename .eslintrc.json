@@ -4,8 +4,8 @@
         "es2021": true
     },
     "extends": [
+        "eslint:recommended",
         "plugin:react/recommended",
-        "airbnb",
         "prettier",
         "prettier/react"
     ],
@@ -21,8 +21,6 @@
         "prettier"
     ],
     "rules": {
-        "react/jsx-props-no-spreading": "off",
-        "react/react-in-jsx-scope": "off",
         "react/jsx-filename-extension": [
             1,
             {
@@ -32,17 +30,17 @@
                 ]
             }
         ],
-        "object-curly-newline": [
-            "error",
-            {
-                "ObjectPattern": {
-                    "multiline": false
-                },
-                "ExportDeclaration": {
-                    "multiline": "never"
-                }
-            }
-        ],
+        // "object-curly-newline": [
+        //     "error",
+        //     {
+        //         "ObjectPattern": {
+        //             "multiline": false
+        //         },
+        //         "ExportDeclaration": {
+        //             "multiline": "never"
+        //         }
+        //     }
+        // ],
         "linebreak-style": "off",
         "no-plusplus": [
             2,

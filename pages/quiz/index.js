@@ -19,20 +19,20 @@ const HomeQuiz = () => {
   const questions = useMemo(() => questionsMock(), []);
   const [question, setQuestion] = useState(questions[0]);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [points, setPoints] = useState(0);
+  const [results, setResults] = useState([]);
   const [screanState, setScreanState] = useState(screenStates.LOADING);
 
   const handleChangeQuestion = ({ acertou }) => {
     const newIndex = currentIndex + 1;
     const isNextQuestion = newIndex < questions?.length;
-    if (acertou) setPoints((prevPoints) => prevPoints + 10);
+    setResults((prevPoints) => [...prevPoints, acertou]);
     if (isNextQuestion) {
       setScreanState(screenStates.LOADING);
       setTimeout(() => {
         setQuestion(questions[newIndex]);
         setCurrentIndex(newIndex);
         setScreanState(screenStates.QUIZ);
-      }, 1000);
+      }, 700);
     } else {
       setScreanState(screenStates.RESULT);
     }
@@ -54,7 +54,7 @@ const HomeQuiz = () => {
             questionIndex={currentIndex + 1}
           />
         )}
-        {screanState === screenStates.RESULT && <QuizResult points={points} />}
+        {screanState === screenStates.RESULT && <QuizResult results={results} />}
         {screanState === screenStates.LOADING && <QuizLoader />}
       </QuizContainer>
       <GitHubCorner projectUrl="https://github.com/Janilso/janquiz" />
