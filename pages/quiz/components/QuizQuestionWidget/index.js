@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import QuizButton from '../../../../src/components/QuizButton';
 import Widget from '../../../../src/components/Widget';
@@ -20,22 +20,22 @@ const QuizQuestionWidget = (props) => {
   const { question, questionIndex, totalQuestions, onChangeQuestion } = props;
   const [selected, setSelected] = useState(null);
   const [enabledClick, setEnabledClick] = useState(true);
-  const [hit, setHit] = useState(null);
+  const [isCorrect, setIsCorrect] = useState(null);
 
   const resetState = () => {
     setSelected(null);
     setEnabledClick(true);
-    setHit(null);
+    setIsCorrect(null);
   };
 
   const onSubmit = (e) => {
     e?.preventDefault();
-    setHit(selected === question?.answer);
+    setIsCorrect(selected === question?.answer);
     setEnabledClick(false);
-    setTimeout(() => {
-      onChangeQuestion({ acertou: selected === question?.answer });
-      resetState();
-    }, 2000);
+    // setTimeout(() => {
+    onChangeQuestion({ acertou: selected === question?.answer });
+    resetState();
+    // }, 2000);
   };
 
   const renderHit = (acertou) => {
@@ -73,13 +73,13 @@ const QuizQuestionWidget = (props) => {
                 id={index}
                 title={alternative}
                 onClick={(id) => (enabledClick ? setSelected(id) : null)}
-                answer={hit !== null ? (selected === index ? hit : null) : null}
+                answer={isCorrect !== null ? (selected === index ? isCorrect : null) : null}
                 selected={selected === index}
               />
             );
           })}
-          {hit !== null ? (
-            renderHit(hit)
+          {isCorrect !== null ? (
+            renderHit(isCorrect)
           ) : (
             <QuizButton type="submit" typeButton="active" disabled={selected === null}>
               CONFIRMAR
