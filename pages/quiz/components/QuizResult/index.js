@@ -59,7 +59,7 @@ QuizResult.propTypes = {
 };
 
 QuizResult.defaultProps = {
-  results: PropTypes.array,
+  results: [],
 };
 
 export default QuizResult;

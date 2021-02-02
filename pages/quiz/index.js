@@ -28,11 +28,11 @@ const HomeQuiz = () => {
     setResults((prevPoints) => [...prevPoints, acertou]);
     if (isNextQuestion) {
       setScreanState(screenStates.LOADING);
-      // setTimeout(() => {
-      setQuestion(questions[newIndex]);
-      setCurrentIndex(newIndex);
-      setScreanState(screenStates.QUIZ);
-      // }, 1000);
+      setTimeout(() => {
+        setQuestion(questions[newIndex]);
+        setCurrentIndex(newIndex);
+        setScreanState(screenStates.QUIZ);
+      }, 700);
     } else {
       setScreanState(screenStates.RESULT);
     }

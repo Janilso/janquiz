@@ -32,10 +32,10 @@ const QuizQuestionWidget = (props) => {
     e?.preventDefault();
     setIsCorrect(selected === question?.answer);
     setEnabledClick(false);
-    // setTimeout(() => {
-    onChangeQuestion({ acertou: selected === question?.answer });
-    resetState();
-    // }, 2000);
+    setTimeout(() => {
+      onChangeQuestion({ acertou: selected === question?.answer });
+      resetState();
+    }, 2000);
   };
 
   const renderHit = (acertou) => {
