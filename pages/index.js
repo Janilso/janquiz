@@ -14,6 +14,7 @@ import QuizInput from '../src/components/QuizInput';
 import QuizButton from '../src/components/QuizButton';
 import QuizOption from '../src/components/QuizOption';
 import QuizContainer from '../src/components/QuizContainer';
+import { motion } from 'framer-motion';
 
 export default function Home() {
   const router = useRouter();
@@ -30,7 +31,16 @@ export default function Home() {
       <QuizContainer>
         <QuizLogo />
 
-        <Widget>
+        <Widget
+          as={motion.section}
+          transition={{ delay: 0, duration: 0.5 }}
+          variants={{
+            show: { x: 0, opacity: 1 },
+            hidden: { x: -20, opacity: 0 },
+          }}
+          initial="hidden"
+          animate="show"
+        >
           <Widget.Header>
             <h1>Marvel Studios</h1>
           </Widget.Header>
@@ -50,7 +60,16 @@ export default function Home() {
             </form>
           </Widget.Content>
         </Widget>
-        <Widget>
+        <Widget
+          as={motion.section}
+          transition={{ delay: 0.2, duration: 0.5 }}
+          variants={{
+            show: { x: 0, opacity: 1 },
+            hidden: { x: -20, opacity: 0 },
+          }}
+          initial="hidden"
+          animate="show"
+        >
           <Widget.Content>
             <h1>Quizes da Galera</h1>
             <p>lorem ipsum dolor sit ametass...</p>

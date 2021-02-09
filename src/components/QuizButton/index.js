@@ -68,7 +68,7 @@ QuizButton.propTypes = {
   width: PropTypes.string,
   disabled: PropTypes.bool,
   onClick: PropTypes.func,
-  children: PropTypes.element,
+  children: PropTypes.elementType,
 };
 
 QuizButton.defaultProps = {
