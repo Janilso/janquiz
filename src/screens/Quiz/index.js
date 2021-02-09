@@ -33,7 +33,7 @@ const QuizScreen = (props) => {
         setQuestion(questions[newIndex]);
         setCurrentIndex(newIndex);
         setScreanState(screenStates.QUIZ);
-      }, 700);
+      }, 400);
     } else {
       setScreanState(screenStates.RESULT);
     }

@@ -5,6 +5,7 @@ import Widget from '../../../../components/Widget';
 import QuizOption from '../../../../components/QuizOption';
 import { iconSuccess, iconError } from '../../../../assets/svg';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 const StyleResult = styled.div`
   width: 100%;
@@ -47,7 +48,16 @@ const QuizQuestionWidget = (props) => {
   };
 
   return (
-    <Widget>
+    <Widget
+      as={motion.section}
+      transition={{ delay: 0.1, duration: 0.5 }}
+      variants={{
+        show: { x: 0, opacity: 1 },
+        hidden: { x: -20, opacity: 0 },
+      }}
+      initial="hidden"
+      animate="show"
+    >
       <Widget.Header>
         <h1>
           Pergunta {questionIndex} de {totalQuestions}
