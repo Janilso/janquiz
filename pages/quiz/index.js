@@ -4,8 +4,10 @@ import questionsMock from '../../src/utils/mock/questions';
 import { ThemeProvider } from 'styled-components';
 import themes from '../../src/utils/themes';
 import QuizScreen from '../../src/screens/Quiz';
+import getAllQuestions from '../../src/backend/questions';
 
-const MyQuiz = () => {
+const MyQuiz = ({ loading = false, questionsBack = [] }) => {
+  // console.log({ loading, questionsBack });
   const theme = useMemo(() => themes.normal, []);
   const questions = useMemo(() => questionsMock(), []);
 
@@ -15,5 +17,19 @@ const MyQuiz = () => {
     </ThemeProvider>
   );
 };
+
+export async function getServerSideProps(context) {
+  return new Promise((resolve, reject) => {
+    getAllQuestions()
+      .then((data) => {
+        // console.log('questions', data);
+
+        resolve({ props: { loading: false, questionsBack: data } });
+      })
+      .catch(() => {
+        reject({ props: { loading: false, questionsBack: [] } });
+      });
+  });
+}
 
 export default MyQuiz;
