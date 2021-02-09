@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import QuizButton from '../../../../src/components/QuizButton';
-import Widget from '../../../../src/components/Widget';
-import QuizOption from '../../../../src/components/QuizOption';
-import { iconSuccess, iconError } from '../../../../src/assets/svg';
+import QuizButton from '../../../../components/QuizButton';
+import Widget from '../../../../components/Widget';
+import QuizOption from '../../../../components/QuizOption';
+import { iconSuccess, iconError } from '../../../../assets/svg';
 import styled from 'styled-components';
 
 const StyleResult = styled.div`

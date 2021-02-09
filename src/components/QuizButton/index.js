@@ -1,3 +1,4 @@
+/* eslint-disable react/no-children-prop */
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
@@ -11,7 +12,7 @@ const getColor = (props) => {
     case 'secondary':
       return colors?.secondary;
     case 'active':
-      return colors?.active;
+      return colors?.active ?? colors?.primary;
     default:
       return colors?.primary;
   }
@@ -67,6 +68,7 @@ QuizButton.propTypes = {
   width: PropTypes.string,
   disabled: PropTypes.bool,
   onClick: PropTypes.func,
+  children: PropTypes.element,
 };
 
 QuizButton.defaultProps = {
@@ -75,6 +77,7 @@ QuizButton.defaultProps = {
   width: '100%',
   disabled: false,
   onClick: () => {},
+  children: <></>,
 };
 
 export default memo(QuizButton);

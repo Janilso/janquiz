@@ -1,7 +1,10 @@
 // import styled from 'styled-components';
 
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { useRouter } from 'next/router';
+import externalURIs from '../src/utils/mock/external';
+import { github } from '../src/utils/constants/site';
+
 import { backgroundMarvel } from '../src/assets/images';
 import GitHubCorner from '../src/components/GitHubCorner';
 import QuizBackground from '../src/components/QuizBackground';
@@ -15,6 +18,7 @@ import QuizContainer from '../src/components/QuizContainer';
 export default function Home() {
   const router = useRouter();
   const [name, setName] = useState('');
+  const external = useMemo(() => externalURIs(), []);
 
   const onSubmit = (e) => {
     e?.preventDefault();
@@ -50,13 +54,27 @@ export default function Home() {
           <Widget.Content>
             <h1>Quizes da Galera</h1>
             <p>lorem ipsum dolor sit ametass...</p>
-            <QuizOption title="clebinhodj/showdomilhaoalura" hoverble={false} />
-            <QuizOption title="joaokleberprogramador/aluraqiz" hoverble={false} />
-            <QuizOption title="demervalthelegend/imersao-alura" hoverble={false} />
+            {external?.map((linkExterno) => {
+              const [projectName, githubUser] = linkExterno
+                .replace(/\//g, '')
+                .replace('https:', '')
+                .replace('.vercel.app', '')
+                .split('.');
+              return (
+                <QuizOption
+                  key={linkExterno}
+                  title={`${githubUser}/${projectName}`}
+                  hoverble={false}
+                  onClick={() => {
+                    router.push(`/quiz/${projectName}___${githubUser}`);
+                  }}
+                />
+              );
+            })}
           </Widget.Content>
         </Widget>
       </QuizContainer>
-      <GitHubCorner projectUrl="https://github.com/Janilso/janquiz" />
+      <GitHubCorner projectUrl={github} />
     </QuizBackground>
   );
 }

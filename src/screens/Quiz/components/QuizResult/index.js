@@ -1,8 +1,8 @@
 import { useRouter } from 'next/router';
 import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
-import Widget from '../../../../src/components/Widget';
-import QuizButton from '../../../../src/components/QuizButton';
+import Widget from '../../../../components/Widget';
+import QuizButton from '../../../../components/QuizButton';
 import styled from 'styled-components';
 
 const StyleDeitals = styled.div`
