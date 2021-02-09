@@ -1,6 +1,6 @@
 import React from 'react';
-import Loader from '../../../../src/components/Loader';
-import Widget from '../../../../src/components/Widget';
+import Loader from '../../../../components/Loader';
+import Widget from '../../../../components/Widget';
 
 const QuizLoader = () => {
   return (

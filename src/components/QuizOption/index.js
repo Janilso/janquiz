@@ -13,7 +13,7 @@ const StyleQuizOption = styled.div`
     if (answer !== null && !answer) {
       return colors.wrong;
     }
-    return selected ? colors.selected : colors.darkenMainBg;
+    return selected ? colors?.selected ?? colors?.primary : colors?.darkenMainBg ?? colors?.secondary;
   }};
   margin-top: 0.5rem;
   transition: ${({ theme }) => theme.transition};
@@ -25,7 +25,8 @@ const StyleQuizOption = styled.div`
   }
 
   &:hover {
-    background: ${({ theme: { colors }, disabled, hoverble }) => (disabled || !hoverble ? '' : colors.selected)};
+    background: ${({ theme: { colors }, disabled, hoverble }) =>
+      disabled || !hoverble ? '' : colors?.selected ?? colors?.primary};
   }
 `;
 
